@@ -5,21 +5,25 @@ class Solution {
         int sum=0;
         int len;
         double maxi=Integer.MIN_VALUE;
-        double av;
-        for(high=0;high<nums.length;high++){
+        double av=0;
+        for(high=0;high<k;high++){
             sum=sum+nums[high];
-            len=high-low+1;
-            av=(double)sum/len;
-            while(len>k){
+            av=(double)sum/k;
+        }
+               maxi=Math.max(maxi,av);
+            while(k<nums.length){
                 sum=sum-nums[low];
                 low++;
-                len=high-low+1;
-                av=(double)sum/len;
+                if(high==nums.length){
+                    break;
+                }
+                sum=sum+nums[high];
+                high++;
+                av=(double)sum/k;
+                 maxi=Math.max(maxi,av);
+
             }
-            if(len==k){
-                maxi=Math.max(maxi,av);
-            }
-        }
+            
         return maxi;
     }
 }
