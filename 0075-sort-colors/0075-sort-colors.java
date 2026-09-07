@@ -1,34 +1,28 @@
 class Solution {
+    public void sw(int[]arr ,int i,int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+            }
     public void sortColors(int[] nums) {
-        int zeros=0;
-        int ones=0;
-        int twos=0;
-        int i;
-        int k=0;
-        for(i=0;i<nums.length;i++){
-            if(nums[i]==0){
-                zeros++;
-            }
-            else if(nums[i]==1){
-                ones++;
-    
-            }
-            else if(nums[i]==2){
-                twos++;
-            }
-        }
-        for(i=0;i<zeros;i++){
-            nums[k]=0;
-            k++;
-        }
-        for(i=0;i<ones;i++){
-            nums[k]=1;
-              k++;
-        }
-        for(i=0;i<twos;i++){
-            nums[k]=2;
-            k++;
-        }
+   int low=0;
+   int mid=0;
+   int high=nums.length-1;
+   
+   while(mid<=high){
+    if(nums[mid]==0){
+        sw(nums,mid,low);
+        low++;
+        mid++;
+    }
+    else if(nums[mid]==1){
+        mid++;
+    }
+    else if(nums[mid]==2){
+        sw(nums,mid,high);
+        high--;
+    }
+   }
         
     }
 }
