@@ -3,14 +3,13 @@ class Solution {
    int k=0;
    int i;
    for(i=0;i<nums.length;i++){
-     if(nums[i]!=0){
+    if(nums[i]!=0){
         nums[k]=nums[i];
         k++;
-     }
+    }
    }
    for(i=k;i<nums.length;i++){
-      nums[i]=0;
+    nums[i]=0;
    }
-   return ;
     }
 }
