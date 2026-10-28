@@ -7,12 +7,12 @@ class Solution {
         for(i=0;i<nums.length;i++){
             if(nums[i]>=0){
                 arr[k]=nums[i];
-                k=k+2;
+                k+=2;
 
             }
 else{
     arr[m]=nums[i];
-    m=m+2;
+    m+=2;
 }
         }
      return arr;
